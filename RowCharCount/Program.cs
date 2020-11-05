@@ -15,6 +15,7 @@ namespace RowCharCount
             string userInput = "";
             int countLines = 0;
             int countWords = 0;
+            int countChar = 0;
             string delimeters = " ";
             string[] wordsInText = null;
 
@@ -32,10 +33,15 @@ namespace RowCharCount
                 {
                     countWords++;
                 }
+                foreach (char c in line)
+                {
+                    countChar++;
+                }
             }
             
             Console.WriteLine("\nTotal of lines in text: " + countLines + 
-                "     Total of words in text: " +countWords);
+                "     Total of words in text: " + countWords +
+                "     Total of chars in text: " + countChar);
             Console.WriteLine("\nPress any key to exit");
             Console.ReadKey();
         }
