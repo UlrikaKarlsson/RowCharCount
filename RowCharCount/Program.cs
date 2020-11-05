@@ -12,13 +12,30 @@ namespace RowCharCount
         static void Main(string[] args)
         {
             //declare variables
-            string path = @"c:\FileForSwedishLanguage.txt";
-            string[] linesOfFileText = File.ReadAllLines(path);
+            string userInput = "";
+            int countLines = 0;
+            int countWords = 0;
+            string delimeters = " ";
+            string[] wordsInText = null;
+
             //read file
-            foreach (string s in linesOfFileText)
+            Console.Write("Please enter the filename you want to open: ");
+            userInput = Console.ReadLine();
+            string[] lineInFile = File.ReadAllLines(userInput);
+            Console.WriteLine();
+            foreach (string line in lineInFile )
             {
-                Console.WriteLine(s);
+                Console.WriteLine(line);
+                countLines++;
+                wordsInText = line.Split(delimeters.ToCharArray());
+                for(int i = 0; i < wordsInText.Length; i++)
+                {
+                    countWords++;
+                }
             }
+            
+            Console.WriteLine("\nTotal of lines in text: " + countLines + 
+                "     Total of words in text: " +countWords);
             Console.WriteLine("\nPress any key to exit");
             Console.ReadKey();
         }
